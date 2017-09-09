@@ -1,7 +1,6 @@
 import static java.lang.System.out;
 import java.util.Scanner;
 
-
 public class MultiplicationTable
 {
     public static void printTable (int sizeOfTable){
@@ -10,7 +9,7 @@ public class MultiplicationTable
             out.format("%4d", i);
         }
         out.println();
-        for(int i = 0 ; i<+ sizeOfTable; i++){
+        for(int i = 0 ; i<= sizeOfTable; i++){
             out.format("%4d",i);
             for(int j = 0; j <= sizeOfTable; j++) {
                 out.format("%4d", i*j);
@@ -21,8 +20,17 @@ public class MultiplicationTable
 
     public static void main(String[] args)
     {
-        int sizeOfTable = 20;
-        printTable(sizeOfTable);
+        Scanner keyboard = new Scanner(System.in);
+        int sizeOfTable;
+        out.println("What is the size of multiplication table you would like to print?");
+        sizeOfTable = keyboard.nextInt(); 
+        if (sizeOfTable > 20)
+        {
+            out.println("Error. Table size couldn't be greater than 20"); 
+        }
+        else {
+            printTable(sizeOfTable);
+        }
     }
 }
 
